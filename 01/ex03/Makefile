@@ -1,0 +1,27 @@
+NAME	= human
+CC		= clang++
+CFLAGS	= -Wextra -Werror -Wall -std=c++98
+SRCS	= 	HumanA.cpp\
+			HumanB.cpp\
+			main.cpp\
+			Weapon.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
+all	: $(NAME)
+
+%.o : %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME) : $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $^
+
+clean :
+	rm -f $(OBJS)
+
+fclean : clean
+	rm -f $(NAME)
+
+re : fclean all
+
+.PHONY : clean fclean all re
