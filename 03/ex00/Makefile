@@ -1,20 +1,22 @@
-NAME	=	replace
-CC		=	clang++
-CFLAGS	=	-Wextra -Wall -Werror -std=c++98
+NAME	= ClapTrap
+CC		= clang++
+CFLAGS	= -Wextra -Werror -Wall -std=c++98
 
-SRC		=	main.cpp
-OBJ	= $(SRC:.cpp=.o)
+SRCS	=	main.cpp\
+			ClapTrap.cpp
+
+OBJS	=	$(SRCS:.cpp=.o)
 
 all	: $(NAME)
 
 %.o : %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME) : $(OBJ)
+$(NAME) : $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^
 
 clean :
-	rm -f $(OBJ)
+	rm -f $(OBJS)
 
 fclean : clean
 	rm -f $(NAME)
