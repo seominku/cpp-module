@@ -1,4 +1,6 @@
 
+#ifndef ZOMBIE_HPP
+# define ZOMEBIE_HPP
 #include <iostream>
 
 class Zombie
@@ -15,3 +17,5 @@ private:
 
 Zombie *newZombie(std::string name);
 void    randomChump(std::string name);
+
+#endif

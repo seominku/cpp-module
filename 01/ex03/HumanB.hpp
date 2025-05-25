@@ -1,4 +1,6 @@
 
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 #include <iostream>
 class Weapon;
 class HumanB
@@ -14,3 +16,5 @@ private:
 	Weapon *_weapon;
 	int	_flag;
 };
+
+#endif

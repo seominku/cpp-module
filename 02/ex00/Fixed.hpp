@@ -1,4 +1,6 @@
 
+#ifndef FIXED_HPP
+# define FIXED_HPP
 #include <iostream>
 
 class Fixed
@@ -17,3 +19,5 @@ private:
 	int fix_number;
 	static const int bits = 8;
 };
+
+#endif
