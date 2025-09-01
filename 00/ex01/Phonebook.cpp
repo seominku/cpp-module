@@ -42,12 +42,8 @@ void PhoneBook::SelectIndex()
 		return ;
 	std::cout << "Insert Index" << std::endl;
 	std::cin>>number;
+	std::cin.ignore(__INT_MAX__,'\n');
 	number -= 1;
-	if (std::cin.fail())
-	{
-		std::cin.clear();
-		std::cin.ignore();
-	}
 	if (number >= 0 && number < 8 && _index > number)
 		_contacts[number].PrintOne();
 }

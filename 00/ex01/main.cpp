@@ -9,12 +9,8 @@ int main(void)
 	while (1)
 	{
 		phonebook.PrintMenu();
-		std::cin>>cmd;
-		if (std::cin.fail())
-		{
-			std::cin.clear();
-			std::cin.ignore();
-		}
+		if (!(std::getline(std::cin, cmd)))
+			return (1);
 		if (cmd == "ADD")
 			phonebook.Add();
 		else if (cmd == "SEARCH")

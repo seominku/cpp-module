@@ -2,18 +2,20 @@
 #include "Contact.hpp"
 #include <string.h>
 
+//공백 들어갔을 때 예외처리 하기
+//Exit했을 때 전부다 삭제후 종료
 void	Contact::AddContact()
 {
 	std::cout << "insert first name" << std::endl;
-	std::cin>>this->_first_name;
-	std::cout << "insert last number" << std::endl;
-	std::cin>>this->_last_name;
+	std::getline(std::cin, _first_name);
+	std::cout << "insert last name" << std::endl;
+	std::getline(std::cin, _last_name);
 	std::cout << "insert nickname" << std::endl;
-	std::cin>>this->_nickname;
+	std::getline(std::cin, _nickname);
 	std::cout << "insert phone number" << std::endl;
-	std::cin>>this->_phone_number;
+	std::getline(std::cin, _phone_number);
 	std::cout << "insert darkest secret" << std::endl;
-	std::cin>>this->_darkest_secret;
+	std::getline(std::cin, _darkest_secret);
 	CopyName();
 	CheckLine();
 	InsertBlank();
@@ -31,11 +33,6 @@ void	Contact::PrintContact(int i) const
 void	Contact::SetIndex(int index)
 {
 	this->_index = index + 1;
-}
-
-int	Contact::GetIndex()
-{
-	return (this->_index);
 }
 
 void	Contact::CheckLine()
