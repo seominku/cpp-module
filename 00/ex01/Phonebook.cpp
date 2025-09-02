@@ -9,7 +9,8 @@ void PhoneBook::PrintMenu() const
 
 void PhoneBook::Add()
 {
-	_contacts[_index % 8].AddContact();
+	if (_contacts[_index % 8].AddContact())
+		return ;
 	_contacts[_index % 8].SetIndex(_index);
 	_index++;
 }
@@ -46,4 +47,13 @@ void PhoneBook::SelectIndex()
 	number -= 1;
 	if (number >= 0 && number < 8 && _index > number)
 		_contacts[number].PrintOne();
+}
+
+void PhoneBook::ClearContacts()
+{
+	for(int i = _index; i > 0; i --)
+	{
+		_contacts[i].Clear();
+		_index--;
+	}
 }

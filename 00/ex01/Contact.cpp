@@ -3,22 +3,32 @@
 #include <string.h>
 
 //공백 들어갔을 때 예외처리 하기
-//Exit했을 때 전부다 삭제후 종료
-void	Contact::AddContact()
+bool	Contact::AddContact()
 {
 	std::cout << "insert first name" << std::endl;
 	std::getline(std::cin, _first_name);
+	if (CheckBlank(_first_name))
+		return (true);
 	std::cout << "insert last name" << std::endl;
 	std::getline(std::cin, _last_name);
+	if (CheckBlank(_last_name))
+		return (true);
 	std::cout << "insert nickname" << std::endl;
 	std::getline(std::cin, _nickname);
+	if (CheckBlank(_nickname))
+		return (true);
 	std::cout << "insert phone number" << std::endl;
 	std::getline(std::cin, _phone_number);
+	if (CheckBlank(_phone_number))
+		return (true);
 	std::cout << "insert darkest secret" << std::endl;
 	std::getline(std::cin, _darkest_secret);
+	if (CheckBlank(_darkest_secret))
+		return (true);
 	CopyName();
 	CheckLine();
 	InsertBlank();
+	return (false);
 }
 
 void	Contact::PrintContact(int i) const
@@ -94,4 +104,23 @@ void	Contact::PrintOne()
 	std::cout << "Nickname : " << _copy_nickname << std::endl;
 	std::cout << "Phone Number : " << _phone_number << std::endl;
 	std::cout << "Darkest Secret : " << _darkest_secret << std::endl;
+}
+
+void Contact::Clear()
+{
+	_first_name = "";
+	_last_name = "";
+	_nickname = "";
+	_phone_number = "";
+	_darkest_secret = "";
+}
+
+bool Contact::CheckBlank(std::string str)
+{
+	for(unsigned long i = 0; i < str.length(); i++)
+	{
+		if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >='A' && str[i] <= 'Z'))
+			return (false);
+	}
+	return (true);
 }

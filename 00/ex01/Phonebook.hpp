@@ -12,6 +12,7 @@ public:
 	void Add();
 	void Search();
 	void SelectIndex();
+	void ClearContacts();
 	void PrintMenu() const;
 private:
 	Contact _contacts[8];

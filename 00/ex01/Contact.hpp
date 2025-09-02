@@ -7,15 +7,17 @@ class Contact
 {
 
 public:
-	void	AddContact();
+	bool	AddContact();
 	void	PrintContact(int i) const;
 	void	SetIndex(int index);
 	void	PrintOne();
+	void	Clear();
 
 private:
 	void	CopyName();
 	void	CheckLine();
 	void	InsertBlank();
+	bool	CheckBlank(std::string str);
 	int	_index;
 	std::string _first_name;
 	std::string _last_name;

@@ -19,6 +19,9 @@ int main(void)
 			phonebook.SelectIndex();
 		}
 		else if (cmd == "EXIT")
+		{
+			phonebook.ClearContacts();
 			break;
+		}
 	}
 }
